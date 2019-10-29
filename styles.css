@@ -1,0 +1,53 @@
+body{
+    background-color: ghostwhite;
+  }
+  
+  button {
+    background-color: #A076FF;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 10px 32px;
+    font-weight: 550;
+    width: 100%;
+    color: whitesmoke;
+    transition: .7s;
+  }
+
+  button:hover {
+    background-color: #B391F8;
+  }
+
+  button.eql{
+    background-color: orange;
+  }
+
+  button.eql:hover{
+    background-color: darkorange;
+  }
+
+  button.func{
+    background-color: rgb(97, 72, 146);
+  }
+
+  button.func:hover{
+    background-color: rgb(65, 46, 104);
+  }
+
+
+  input {
+    background-color: lightgray;
+    padding: 9px 25px;
+    border: none;
+    border-bottom: 2px solid rebeccapurple;
+    width: 86.5%;
+  }
+
+  .container {
+    background-color: gray;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+  }

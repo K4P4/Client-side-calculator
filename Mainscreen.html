@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script> 
+         function display(val) 
+         { 
+             document.getElementById("result").value+=val 
+         } 
+           
+         function clr() 
+         { 
+             document.getElementById("result").value = "" 
+         } 
+
+         function del() 
+         { 
+             document.getElementById("result").value = Math.floor(document.getElementById("result").value / 10) 
+         }
+
+         function add()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "+"
+            document.getElementById("result").value = "" 
+         }
+
+         function subtract()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "-"
+            document.getElementById("result").value = "" 
+         }
+
+         function multiply()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "*"
+            document.getElementById("result").value = "" 
+         }
+
+         function divide()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "/"
+            document.getElementById("result").value = "" 
+         }
+
+         function power()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "^"
+            document.getElementById("result").value = "" 
+         }
+
+         function root()
+         {
+            document.getElementById("input").value = document.getElementById("result").value + "√"
+            document.getElementById("result").value = "" 
+         }
+
+         function equals()
+         {
+            let operation = document.getElementById("input").value.substr(document.getElementById("input").value.length - 1);
+            var res = parseFloat(document.getElementById("input").value.substring(0, document.getElementById("input").value.length - 1))
+            var res2 = parseFloat(document.getElementById("result").value)
+            if(document.getElementById("result").value.length == 0) res2 = 0;
+            if(operation === "+")
+            {
+               document.getElementById("result").value = res + res2
+               document.getElementById("input").value = ""
+            }
+            else if(operation === "-")
+            {
+               document.getElementById("result").value = res - res2
+               document.getElementById("input").value = ""
+            }
+            else if(operation === "*")
+            {
+               document.getElementById("result").value = res * res2
+               document.getElementById("input").value = ""
+            }
+            else if(operation === "/")
+            {
+               if(res2 == 0)
+               {
+                  document.getElementById("input").value = "Impossible to divide from 0"
+                  document.getElementById("result").value = ""
+               }
+               else
+               {
+               document.getElementById("result").value = res / res2
+               document.getElementById("input").value = ""
+               }
+            }
+            else if(operation === "^")
+            {
+               document.getElementById("result").value = Math.pow(res, res2)
+               document.getElementById("input").value = ""
+            }
+            else if(operation === "√")
+            {
+               document.getElementById("result").value = Math.pow(res, 1/res2)
+               document.getElementById("input").value = ""
+            }
+         }
+      </script> 
+  <meta charset = "utf-8">
+  <meta name = "viewport" content = "width=device-width">
+  <title> Calculator </title>
+   <link rel ="stylesheet" href ="styles.css">
+</head>
+
+<body>
+  <div class = container>
+     <table> 
+          <tr> 
+            <td colspan="5"><input type="text" id="input" disabled/></td>  
+         </tr>
+         <tr> 
+            <td colspan="5"><input type="text" id="result" disabled/></td>  
+         </tr> 
+         <tr> 
+            <td><button class = "numb" onclick="display('1')">1</button> </td> 
+            <td><button class = "numb" onclick="display('2')">2</button> </td> 
+            <td><button class = "numb" onclick="display('3')">3</button> </td> 
+            <td><button class = "func" onclick="add()">+</button> </td>
+            <td><button class = "func" onclick="del()">⬅</button> </td> 
+         </tr> 
+         <tr> 
+            <td><button class = "numb" onclick="display('4')">4</button> </td> 
+            <td><button class = "numb" onclick="display('5')">5</button> </td> 
+            <td><button class = "numb" onclick="display('6')">6</button> </td>  
+            <td><button class = "func" onclick="subtract()">-</button> </td>
+            <td><button class = "func" onclick="clr()">C</button> </td>  
+         </tr> 
+         <tr> 
+            <td><button class = "numb" onclick="display('7')">7</button> </td> 
+            <td><button class = "numb" onclick="display('8')">8</button> </td> 
+            <td><button class = "numb" onclick="display('9')">9</button> </td> 
+            <td><button class = "func" onclick="multiply()">*</button> </td>
+            <td><button class = "func" onclick="power()">^</button> </td>  
+         </tr> 
+         <tr> 
+            <td><button class = "numb" onclick="display('.')">.</button> </td> 
+            <td><button class = "numb" onclick="display('0')">0</button> </td> 
+            <!-- solve function call function solve to evaluate value -->
+            <td><button class = "eql" onclick="equals()">=</button> </td> 
+            <td><button class = "func" onclick="divide()">/</button> </td>
+            <td><button class = "func" onclick="root()">√</button> </td> 
+         </tr> 
+      </table> 
+  </div>
+</body>
